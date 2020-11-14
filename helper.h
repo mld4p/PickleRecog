@@ -14,7 +14,7 @@ struct quiz
 	string question;
 	string choices[4];
 	char answer;
-}
+};
 
 struct TorF
 {
@@ -22,9 +22,9 @@ struct TorF
 	char answer;
 };
 
-void initQuiz(quiz &q[6]);
+void initQuiz(quiz MCq[]);
 
-void initTF(TorF &q[3]);
+void initTF(TorF q[]);
 
 bool quizShow(const int num);
 
