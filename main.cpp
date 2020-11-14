@@ -6,7 +6,7 @@
 #include<iostream>
 #include<string>
 #include"helper.h"
-
+#include"Maze.h"
 using namespace std;
 
 
@@ -22,5 +22,8 @@ int main()
 	cout<<tralse<<endl;
 	cout<<millionaire<<endl;
 
+	Maze picklemaze;
+	cout << picklemaze;
+	
 	return 0;
 }
