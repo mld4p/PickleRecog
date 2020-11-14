@@ -10,43 +10,46 @@
 
 using namespace std;
 
-void initQuiz(quiz &q[6])
+void initQuiz(quiz MCq[])
 {
-	ifstream fin("questions.dat");
+        ifstream fin("questions.dat");
 
-	if(fin.is_open())
-	{
-		for(int i=0;i<6;i++)
-		{
-			q[i].question=getline(fin,"\n");
-			for(int x=0;x<4;x++)
-			{
-				q[i].choice[x]=getline(fin,"\n");
-			}
-			q[i].answer=static_cast<char>(getline(fin,"\n"));
-		}
-	}
-	fin.close();
-	return;
+        if(fin.is_open())
+        {
+                for(int i=0;i<6;i++)
+                {
+                        getline(fin,MCq[i].question,'\n');
+                        for(int x=0;x<4;x++)
+                        {
+                                getline(fin,MCq[i].choices[x],'\n');
+                        }
+                        MCq[i].answer=fin.get();
+                        fin.ignore(1,'\n');
+                }
+        }
+        fin.close();
+        return;
 }
 
-void initTF(TorF &q[3])
+void initTF(TorF q[])
 {
-	ifstream fin("questions.dat");
+        ifstream fin("questions.dat");
 
-	if(fin.is_open())
-	{
-		for(int i=0;i<36;i++)
-			fin.ignore(80,'\n');
+        if(fin.is_open())
+        {
+                for(int i=0;i<36;i++)
+                        fin.ignore(80,'\n');
 
-		for(int i=0;i<3;i++)
-		{
-			q[i].question=getline(fin.'\n');
-			q[i].answer=static_cast<char>(getline(fin,'\n'));
-		}
-	}
-	fin.close();
-	return;
+                for(int i=0;i<3;i++)
+                {
+                        getline(fin,q[i].question,'\n');
+                        q[i].answer=fin.get();
+                        fin.ignore(1,'\n');
+                }
+        }
+        fin.close();
+        return;
 }
+
 
 
