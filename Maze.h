@@ -8,7 +8,7 @@ class Maze {
 	vector<vector<char>> maze;
 public:
 	Maze();
-
+	char position(const int x, const int y);
 	friend ostream& operator << (ostream & os, const Maze & maze);
 };
 
@@ -100,6 +100,10 @@ Maze::Maze(){
 
 	}
 
+}
+char Maze::position(const int x, const int y)
+{
+	return maze[x][y];
 }
 ostream& operator << (ostream& os, const Maze& picklemaze)
 {
