@@ -1,7 +1,7 @@
 using namespace std;
 #include"person.h"
 #include"maze.h"
-#include"questions.h"
+#include"helper.h"
 
 
 char getMove()
@@ -31,7 +31,7 @@ int checkMove(const char direction, const Maze maze)
   }
 
 
-  posStatus = maze.getPos(x_potential,y_potential);
+  posStatus = maze.position(x_potential,y_potential);
 
 
   if(posStatus = '?')
@@ -42,16 +42,3 @@ int checkMove(const char direction, const Maze maze)
     return -1;
 }
 
-bool Person::question()
-{
-  while(!Questions.askQuestion())
-  {
-    health--;
-    if(health == 0)
-    {
-      cout << "You died" << endl;
-      return false;
-    }
-  }
-  return true;
-}
